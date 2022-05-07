@@ -17,7 +17,7 @@ ports.append(last_port)
 
 for i in range(1, len(ports)):
     port_ = str(str(ports[i-1]) + '-' + str(ports[i]))
-    print('scan_port: 'port_)
+    print('scan_port: ' + port_)
     nm = nmap.PortScanner()
     nm.scan(ip, port_, '-sV -sC -A')
     print(nm.command_line())
