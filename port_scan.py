@@ -42,3 +42,18 @@ def main(port):
                     print ('port : %s\tstate : %s' % (port, nm[host][proto][port]['state']))
 
 main(port)
+print(end="\n")
+anser = input('Scan udp-port?(need a sudo privileges!!): ')
+if anser in 'y':
+    print('scan-port: udp-ports')
+    print('----------------------------------------------------')
+    nm = nmap.PortScanner()
+    nm.scan(ip, '-sU -sV -sC -A')
+    for host in nm.all_hosts():
+            for proto in nm[host].all_protocols():
+                lport = nm[host][proto].keys()
+                sorted(lport)
+                for port in lport:
+                    print ('port : %s\tstate : %s' % (port, nm[host][proto][port]['state']))
+else:
+    exit(0)
