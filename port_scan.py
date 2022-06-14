@@ -1,16 +1,19 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 import sys
 from unittest import skip
 import nmap
 
-try:
-    args = sys.argv
-    ip = str(args[1])
-    port = args[2]
-    ports = list()
-except:
-    print('[*]Usage: $ port_scan.py 192.168.xx.xx 10000', end="\n\n")
+assert len(sys.argv) >= 3, '[*]Usage: $ port_scan.py 192.168.xx.xx 10000'
 
+args = sys.argv
+ip = str(args[1])
+port = args[2]
+# port-number check
+assert 65535 >= int(port), "[*]Error: max port-number is 65535 !!"
+
+ports = list()
+
+# port-number-split
 def port_split(port):
     for i in range(0, int(port), 2000):
         ports.append(i)
