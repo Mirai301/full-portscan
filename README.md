@@ -1,4 +1,4 @@
-# fast-portscan
+# full-portscan
 nmapライブラリを利用したフルポートスキャン用スクリプト
 ```
 $ pip install -r requirements.txt
